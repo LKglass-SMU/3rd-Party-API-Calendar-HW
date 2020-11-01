@@ -70,7 +70,4 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-hr.dashed {
-  border-top: 3px dashed #bbb;
-}
 

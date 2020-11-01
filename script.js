@@ -1,22 +1,40 @@
 $(document).ready(function () {
-  var currentHour = moment().hour();
-  var timeBlocks = $(".time-block");
+  $(".saveBtn").on("click",function(){
+    var value = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
+    localStorage.setItem(time,value);
+  });
+    function comHour(){
+      var currentHour = moment().hour();
+      var timeBlocks = $(".time-block");
 
   $(timeBlocks).each(function() {
      var timeBlock = $(this);
      var timeBlockId = timeBlock.attr('id');
      var hour = parseInt(timeBlockId.split('-')[1])
    if (hour < currentHour) {
-      console.log('add .past class')
       timeBlock.addClass("past")
     } else if (hour === currentHour) {
-      console.log('add .present class')
+      timeBlock.removeClass("past")
+      timeBlock.addClass("present")
     } else {
-      console.log('add .future class')
+      timeBlock.removeClass("past")
+      timeBlock.removeClass("present")
+      timeBlock.addClass("future")
     }
+    });
+    }
+  });
 
-  })
-});
+//time for top of page
+function displayDate() {
+  var current = moment().format("dddd, MMMM Do");
+  $("#currentDay").text(current);
+}
+displayDate();
+
+  comHour();
+  var time = setInterval(compareHour, 15000);
 
 //$(".time-block").each(function() {
 //create a function in doc.ready that gets current time from moment and need to
@@ -28,7 +46,3 @@ $(document).ready(function () {
 
 //var currentDay= document.getElementById("currentDay")
 //document.querySelector()(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
-
-//moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-
-
