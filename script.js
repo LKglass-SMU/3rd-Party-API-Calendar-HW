@@ -24,7 +24,6 @@ $(document).ready(function () {
     }
     });
     }
-  });
 
 //time for top of page
 function displayDate() {
@@ -36,13 +35,17 @@ displayDate();
   comHour();
   var time = setInterval(compareHour, 15000);
 
-//$(".time-block").each(function() {
-//create a function in doc.ready that gets current time from moment and need to
-//be able to loop over every time block, use class
-// each time it loops it stores the time that each block is set to
-//and compares that time to the current time
-//then based off how it compares it that is past present or future, it applies
-//proper class that gives the block the right color
+  $("#hr-9 .description").val(localStorage.getItem("hr-9"));
+  $("#hr-10 .description").val(localStorage.getItem("hr-10"));
+  $("#hr-11 .description").val(localStorage.getItem("hr-11"));
+  $("#hr-12 .description").val(localStorage.getItem("hr-12"));
+  $("#hr-13 .description").val(localStorage.getItem("hr-13"));
+  $("#hr-14 .description").val(localStorage.getItem("hr-14"));
+  $("#hr-15 .description").val(localStorage.getItem("hr-15"));
+  $("#hr-16 .description").val(localStorage.getItem("hr-16"));
+  $("#hr-17 .description").val(localStorage.getItem("hr-17"));
 
-//var currentDay= document.getElementById("currentDay")
-//document.querySelector()(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
+});
+
+
+
