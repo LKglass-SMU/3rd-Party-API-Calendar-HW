@@ -1,9 +1,11 @@
+// this line of code sets the text input for the calendar in local storage
 $(document).ready(function () {
   $(".saveBtn").on("click",function(){
     var value = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
     localStorage.setItem(time,value);
   });
+  // compares the current hour to the timeblock hour to determine curent or future
     function comHour(){
       var currentHour = moment().hour();
       var timeBlocks = $(".time-block");
@@ -25,7 +27,7 @@ $(document).ready(function () {
     });
     }
 
-//time for top of page
+//displays date at top of page
 function displayDate() {
   var current = moment().format("dddd, MMMM Do");
   $("#currentDay").text(current);
@@ -34,7 +36,7 @@ displayDate();
 
   comHour();
   var time = setInterval(compareHour, 15000);
-
+// pulls data written by user from local storage for display
   $("#hr-9 .description").val(localStorage.getItem("hr-9"));
   $("#hr-10 .description").val(localStorage.getItem("hr-10"));
   $("#hr-11 .description").val(localStorage.getItem("hr-11"));
